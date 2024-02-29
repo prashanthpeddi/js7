@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,tr,td{
+            border:2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+    
+        var mg=document.createElement("table");
+        mg0=document.createElement("tr");
+        mg.appendChild(mg0);
+        mg1=document.createElement("td");
+        mg1.innerHTML="<h3>USER NAME</h3>";
+        mg0.appendChild(mg1);
+        mg2=document.createElement("td")
+        mg0.appendChild(mg2)
+        mg2.innerHTML="<h3>PASSWORD</h3>";
+
+        mg3=document.createElement("td")
+        mg0.appendChild(mg3)
+        mg3.innerHTML="<h3>EMAIL</h3>"
+       
+           
+        document.body.appendChild(mg)
+
+
+        bb=localStorage.getItem("users");
+        var pg=JSON.parse(bb);
+        
+        for(i=0;i<pg.length;i++){
+
+            var gk=document.createElement("tr");
+            mg.appendChild(gk);
+
+            var gk1=document.createElement("td")
+            gk.appendChild(gk1)
+            gk1.innerHTML=pg[i]["username"]
+
+            var gk2=document.createElement("td")
+            gk.appendChild(gk2);
+            gk2.innerHTML=pg[i]["password"]
+
+            var gk3=document.createElement("td")
+            gk.appendChild(gk3);
+            gk3.innerHTML=pg[i]["email"]
+          
+            console.log(pg[i])
+        
+     
+        
+        }
+    </script>
+</body> 
+</html>

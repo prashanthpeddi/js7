@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        display: none;
+    }
+</style>
+
+<body>
+
+
+
+
+    <form style="margin-left: 200px;margin-top: 100px;"> 
+
+        <input type="text" placeholder="user name"><br>
+        <span>Already Exit</span>
+        <br>
+     
+
+        <input type="password" placeholder="password">
+        <br>
+        <span>Enter correct details </span>
+        <br>
+        <input type="password" placeholder="Re-password">
+        <br>
+        <span>check again</span>
+       <br>
+        <br>
+        <input type="email" placeholder="abc@123">
+        <br>
+        <BR>
+        <input type="submit">
+    </form>
+    <script>
+
+Username=prompt("Enter your Name")
+window.localStorage.setItem("Username",Username);
+
+
+      var vai=document.createElement("h2")
+     ss= window.localStorage.getItem("Username")
+      vai.innerHTML="Hi "+ss+" Welcome !"
+      vai.setAttribute("style","margin-top:-240px;margin-left:100px;")
+      document.body.appendChild(vai)
+    
+        var d = document.forms;
+
+        console.log(d[0]);
+        var arr = [];
+        d[0].addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var obj = {
+                username: e.target[0].value,
+                password: e.target[1].value,
+                password:e.target[2].value,
+                email:e.target[3].value
+            }
+
+            if (e.target[0].value == 0 && e.target[1].value == 0) {
+              
+                var sp = document.getElementsByTagName("span");
+                e.target[0].style.border = "2px solid red"
+                e.target[1].style.border = "2px solid red"
+                sp[1].style.display = "inline";
+                sp[1].style.color = "red";
+            }
+            
+
+            if(e.target[1].value != e.target[2].value){
+
+e.target[2].style.border="2px solid red"
+
+}
+            else {
+
+                for (i = 0; i < arr.length; i++) {
+                    if (arr[i]["username"] == e.target[0].value && arr[i]["password"] == e.target[1].value  && arr[i]["email"]) {
+                   
+                        var sp1 = document.getElementsByTagName("span");
+                        sp1[0].style.display = "inline";
+                sp1[0].style.color = "red";
+
+                  
+                    }
+                    
+                }
+
+            
+            
+            //    console.log(e)
+            arr.push(obj);
+            e.target[0].value = "";
+            e.target[1].value = "";
+            e.target[2].value="";
+            e.target[3].value="";
+            console.log(arr);
+            }
+
+            localStorage.setItem("users", JSON.stringify(arr))
+
+        }
+
+
+
+        )
+
+        var v3=document.createElement("button")
+        document.body.appendChild(v3);
+        v3.innerText="click to see your login details"
+        v3.setAttribute("style","margin-top:200px;margin-left:50px;")
+
+        v3.addEventListener("click",peddi)
+         
+        function peddi(){
+            window.location.assign("./28form2.html");
+        }
+
+    </script>
+</body>
+
+</html>
